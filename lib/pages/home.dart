@@ -1,3 +1,5 @@
+import 'package:ch9_stack/widgets/stack.dart';
+import 'package:ch9_stack/widgets/stack_favorite.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,7 +18,18 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: SafeArea(child: Container()),
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: 7,
+          itemBuilder: (BuildContext context, int index) {
+            if (index.isEven) {
+              return const StackWidget();
+            } else {
+              return const StackFavoriteWidget();
+            }
+          },
+        ),
+      ),
     );
   }
 }
